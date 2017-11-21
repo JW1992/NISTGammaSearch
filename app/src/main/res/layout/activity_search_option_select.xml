@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jw.nistgammadata.SearchOptionSelect">
+
+    <Button
+        android:id="@+id/buttonIDSearchSymbol"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/button_search_symbol"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonIDSearchNumber"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="searchByAtomNum"
+        android:text="@string/button_seach_Atum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonIDSearchSymbol" />
+
+    <EditText
+        android:id="@+id/editTextIDSearchSymbol"
+        style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:hint="@string/edit_elem_symbol"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></EditText>
+
+    <EditText
+        android:id="@+id/editTextIDSearchNumber"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:hint="@string/edit_elem_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextIDSearchSymbol"></EditText>
+
+    <TextView
+        android:id="@+id/textViewWarningMessage"
+        android:layout_width="313dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/warning_message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextIDSearchNumber" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NIST Gamma Data</string>
+    <string name="button_search_symbol">Search Name</string>
+    <string name="button_seach_Atum">Seach Atom Number</string>
+    <string name="edit_elem_symbol">Enter element symbol</string>
+    <string name="edit_elem_number">Enter atom number</string>
+    <string name="warning_message">Warning messages:</string>
+</resources>
