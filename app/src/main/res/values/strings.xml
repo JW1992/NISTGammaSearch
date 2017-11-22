@@ -5,4 +5,5 @@
     <string name="edit_elem_symbol">Enter element symbol</string>
     <string name="edit_elem_number">Enter atom number</string>
     <string name="warning_message">Warning messages:</string>
+    <string name="text_view_elem_name">Element</string>
 </resources>

@@ -6,4 +6,13 @@
     android:layout_height="match_parent"
     tools:context="jw.nistgammadata.DisplayElementActivity">
 
+    <TextView
+        android:id="@+id/textViewIDElementName"
+        android:layout_width="126dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/text_view_elem_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
