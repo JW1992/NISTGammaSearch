@@ -59,7 +59,7 @@ public class TestAdapter {
         mDbHelper.close();
     }
 
-    public Cursor getTestData()
+    public Cursor getTestData()//Debugging: Jiawei-Nov23
     {
         try
         {
