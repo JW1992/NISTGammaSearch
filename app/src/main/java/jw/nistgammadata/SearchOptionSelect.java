@@ -12,18 +12,36 @@ import android.widget.TextView;
 
 public class SearchOptionSelect extends AppCompatActivity {
 
-    private TestAdapter mDbHelper;
+    private NISTDBAdapter mDbHelper;
     public static final String SEARCH_ELEMENT_NUMBER = "jw.nistgammadata.ELEMENT_NUMBER";
+    //public static final String SEARCH_ELEMENT_NAME = "jw.nistgammadata.ELEMENT_NAME_OR_SYMBOL";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_option_select);
 
-        mDbHelper = new TestAdapter(this);
+        mDbHelper = new NISTDBAdapter(this);
         mDbHelper.createDatabase();
+        mDbHelper.open();
     }
 
-
+    public void searchByName(View view) {
+        Intent intent = new Intent(this, DisplayElementActivity.class);
+        EditText editText = (EditText) findViewById(R.id.editTextIDSearchSymbol);
+        String strInputName = editText.getText().toString();
+        Cursor testdata = mDbHelper.getElementAtomNumByName(strInputName);//Search by name
+        if (testdata!=null)
+        {
+            if(testdata.moveToFirst()) {
+                int nElemNum = testdata.getInt(testdata.getColumnIndex("atom_number"));
+                intent.putExtra(SEARCH_ELEMENT_NUMBER, nElemNum);
+                startActivity(intent);
+            }
+            else{
+                updateWarningTextView(new String("Unable to find this material. Also check spells!"));
+            }
+        }
+    }
 
 
     public void searchByAtomNum(View view){
@@ -32,17 +50,15 @@ public class SearchOptionSelect extends AppCompatActivity {
         String strInputElemNum = editText.getText().toString();
         try {
             int nInElemNum = Integer.parseInt(strInputElemNum);
-            if(nInElemNum<=0 || nInElemNum>=3){
-                updateWarningTextView(new String("Invalid input atom number, need integer from 1 to 2"));
+            if(nInElemNum<=0 || nInElemNum>=93){
+                updateWarningTextView(new String("Invalid input atom number, need integer from 1 to 92"));
                 return;
             }
-            intent.putExtra(SEARCH_ELEMENT_NUMBER, nInElemNum);
 
             //Debugging Jiawei-Nov21,2017
-            /*
-            mDbHelper.open();
-            Cursor testdata = mDbHelper.getElementName(nInElemNum);
-            if (testdata!=null)
+            //mDbHelper.open();
+            //Cursor testdata = mDbHelper.getElementName(nInElemNum);
+            /*if (testdata!=null)
             {
                 if(testdata.moveToFirst()) {
                     //do {
@@ -53,17 +69,14 @@ public class SearchOptionSelect extends AppCompatActivity {
 
                     //} while (testdata.moveToNext());
                 }
-            }
-            mDbHelper.close();
-            */
-
+            }*/
+            //mDbHelper.close();
+            intent.putExtra(SEARCH_ELEMENT_NUMBER, nInElemNum);
             startActivity(intent);
         } catch (NumberFormatException e) {
             //Remaining to be added: invalid data type warning
             updateWarningTextView(new String("Wrong data type, need integer from 1 to 2"));
         }
-
-
     }
 
     public void updateWarningTextView(String toThis) {

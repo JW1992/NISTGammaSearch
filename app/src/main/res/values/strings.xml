@@ -6,4 +6,8 @@
     <string name="edit_elem_number">Enter atom number</string>
     <string name="warning_message">Warning messages:</string>
     <string name="text_view_elem_name">Element</string>
+    <string name="string_EnergyMeV">Energy (MeV)</string>
+    <string name="string_PEcmV">P.E. (cm2/V)</string>
+    <string name="string_AttenTotal">Attn. Total (cm2/V)</string>
+    <string name="textViewEnergy1">N/A</string>
 </resources>

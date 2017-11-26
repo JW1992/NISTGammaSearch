@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class DisplayElementActivity extends AppCompatActivity {
 
-    private TestAdapter mDbHelper;
+    private NISTDBAdapter mDbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,19 +21,68 @@ public class DisplayElementActivity extends AppCompatActivity {
         int nElemNumber = intent.getIntExtra(SearchOptionSelect.SEARCH_ELEMENT_NUMBER, 0);
 
         String strElementName = "N/A";
+        boolean bElementExist = false;
 
-        mDbHelper = new TestAdapter(this);
+        mDbHelper = new NISTDBAdapter(this);
         mDbHelper.createDatabase();
         mDbHelper.open();
-        Cursor testdata = mDbHelper.getElementName(nElemNumber);
-        if (testdata!=null)
+        Cursor testData = mDbHelper.getElementName(nElemNumber);
+        if (testData!=null)
         {
-            if(testdata.moveToFirst()) {
+            if(testData.moveToFirst()) {
                 //do {
-                //int nAtomNumber = testdata.getInt(testdata.getColumnIndex("atom_number"));
-                strElementName = testdata.getString(testdata.getColumnIndex("full_name"));
+                //int nAtomNumber = testData.getInt(testData.getColumnIndex("atom_number"));
+                strElementName = testData.getString(testData.getColumnIndex("name"));
+                bElementExist = true;
 
                 //} while (testdata.moveToNext());
+            }
+            else strElementName = "Element is not available";
+        }
+
+        if(bElementExist){
+            StringBuilder strBDElem = new StringBuilder(strElementName);
+            //String strTemp = String.valueOf(Character.toUpperCase(strBDElem.charAt(0)));
+            //strBDElem.replace(0, 1, strTemp);
+            //strBDElem.insert(0, "Attenuation_");
+            double fEnergyTemp, fPPTemp, fTotalTemp;
+            //Cursor energyData = mDbHelper.getEnergyFromElemTable("Attenuation_Hydrogen");
+            //String[] strInfoQuery = new String[] {"energy","totalcoherent"};
+            String[] strInfoQuery = new String[] {"*"};
+            Cursor energyData = mDbHelper.getInfoFromElemTable(strInfoQuery, strBDElem.toString());
+            if (energyData!=null)
+            {
+                if(energyData.moveToFirst()) {
+                    /*fEnergyTemp  = energyData.getDouble(0);
+                    TextView textViewEnergyTemp = (TextView) findViewById(R.id.textViewIDEnergyValues);
+                    textViewEnergyTemp.setText(Double.toString(fEnergyTemp));*/
+                    //Debugging: Jiawei-Nov23
+                    LinearLayout myLinearLayoutEnergy = (LinearLayout) findViewById(R.id.layoutEnergy);
+                    LinearLayout myLinearLayoutAtten = (LinearLayout) findViewById(R.id.layoutAtten);
+                    final int N = energyData.getCount(); // total number of textviews to add
+                    //final TextView[] myTextViews = new TextView[N]; // create an empty array;
+                    for (int i = 0; i < N; i++) {
+                        // create a new textview
+                        final TextView textViewEnergy = new TextView(this);
+                        final TextView textViewAtten = new TextView(this);
+                        // set some properties of rowTextView or something
+                        fEnergyTemp  = energyData.getDouble(energyData.getColumnIndex("energy"));
+                        //fPPTemp = energyData.getDouble(energyData.getColumnIndex("photoelectric"));
+                        fTotalTemp = energyData.getDouble(energyData.getColumnIndex("attencoeff"));
+                        //String strTempShow = String.format("%-10s %-20s %-30s", Double.toString(fEnergyTemp), Double.toString(fPPTemp), Double.toString(fTotalTemp));
+                        String strTempShowEnergy = String.format("%6s", Double.toString(fEnergyTemp));
+                        String strTempShowAtten = String.format("%10s", Double.toString(fTotalTemp));
+                        textViewEnergy.setText(strTempShowEnergy);
+                        textViewAtten.setText(strTempShowAtten);
+                        //rowTextView.setText(Double.toString(fEnergyTemp));
+                        // add the textview to the linearlayout
+                        myLinearLayoutEnergy.addView(textViewEnergy);
+                        myLinearLayoutAtten.addView(textViewAtten);
+                        // save a reference to the textview for later
+                        //myTextViews[i] = textViewEnergy;
+                        if(!energyData.moveToNext()) break;
+                    }
+                }
             }
         }
         mDbHelper.close();
