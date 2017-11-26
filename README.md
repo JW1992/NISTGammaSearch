@@ -9,12 +9,11 @@ The advantage over the original website is:
 ## Getting Started
 
 #Prerequisites
-(Android Studio)[https://developer.android.com/studio/install.html] is needed.
+[Android Studio](https://developer.android.com/studio/install.html) is needed.
 
 ## Built With
 - Java
-- (SQLite)[]
-
+- [SQLite](https://www.sqlite.org/)
 ## Authors
 - Jiawei Xia
 
