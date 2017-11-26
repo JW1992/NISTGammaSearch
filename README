@@ -1,9 +1,0 @@
-NIST Gamma Data is an Android application to search Gamma ray attenuation data from locally saved NIST files.
-
-All the NIST files are fetched from:
-https://physics.nist.gov/PhysRefData/Xcom/html/xcom1.html
-
-The advantage over the original website is:
-	(Of course) offline data accessary;
-	Faster approach;
-	Most importantly, it can search for the best shielding material based on user specification!
