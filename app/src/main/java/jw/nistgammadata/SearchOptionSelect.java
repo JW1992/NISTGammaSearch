@@ -15,6 +15,7 @@ public class SearchOptionSelect extends AppCompatActivity {
     private NISTDBAdapter mDbHelper;
     public static final String SEARCH_ELEMENT_NUMBER = "jw.nistgammadata.ELEMENT_NUMBER";
     public static final String SEARCH_MATERIAL_ABBREV = "jw.nistgammadata.MATERIAL_CURSOR";
+    public static final String SEARCH_OBJECT_DENSITY = "jw.nistgammadata.OBJECT_DENSITY";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,8 @@ public class SearchOptionSelect extends AppCompatActivity {
             if(testdata.moveToFirst()) {
                 int nElemNum = testdata.getInt(testdata.getColumnIndex("atom_number"));
                 intent.putExtra(SEARCH_ELEMENT_NUMBER, nElemNum);
+                double fTemp = testdata.getDouble(testdata.getColumnIndex("density"));
+                intent.putExtra(SEARCH_OBJECT_DENSITY, fTemp);
                 startActivity(intent);
             }
             else{
@@ -85,11 +88,15 @@ public class SearchOptionSelect extends AppCompatActivity {
                 }
             }*/
             //mDbHelper.close();
+            Cursor testdata = mDbHelper.getElementName(nInElemNum);
+            testdata.moveToFirst();
             intent.putExtra(SEARCH_ELEMENT_NUMBER, nInElemNum);
+            double fTemp = testdata.getDouble(testdata.getColumnIndex("density"));
+            intent.putExtra(SEARCH_OBJECT_DENSITY, fTemp);
             startActivity(intent);
         } catch (NumberFormatException e) {
             //Remaining to be added: invalid data type warning
-            updateWarningTextView(new String("Wrong data type, need integer from 1 to 2"));
+            updateWarningTextView(new String("Wrong data type, need integer from 1 to 92"));
         }
     }
 

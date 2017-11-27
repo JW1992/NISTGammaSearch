@@ -117,7 +117,7 @@ public class NISTDBAdapter {
         {
             StringBuilder tempStrBuilder = new StringBuilder();
             tempStrBuilder.append(nInputAtomNum);
-            String sql ="SELECT name FROM elements WHERE atom_number LIKE " + tempStrBuilder.toString();
+            String sql ="SELECT name, density FROM elements WHERE atom_number LIKE " + tempStrBuilder.toString();
 
             Cursor mCur = mDb.rawQuery(sql, null);
             return mCur;
@@ -135,7 +135,7 @@ public class NISTDBAdapter {
         {
             StringBuilder tempStrBuilder = new StringBuilder();
             tempStrBuilder.append(strElemName);
-            String sql ="SELECT atom_number FROM elements WHERE name LIKE '" + tempStrBuilder.toString() + "' OR symbol LIKE '" + tempStrBuilder.toString() + "'";
+            String sql ="SELECT atom_number, density FROM elements WHERE name LIKE '" + tempStrBuilder.toString() + "' OR symbol LIKE '" + tempStrBuilder.toString() + "'";
 
             Cursor mCur = mDb.rawQuery(sql, null);
             return mCur;

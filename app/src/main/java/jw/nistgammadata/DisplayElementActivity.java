@@ -15,6 +15,7 @@ public class DisplayElementActivity extends AppCompatActivity {
     public static final String ATTEN_COEFF = "jw.nistgammadata.COEFF_LIST";
     private double[] fEnergy;
     private double[] fCoeff;
+    private double fDensity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class DisplayElementActivity extends AppCompatActivity {
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
         int nElemNumber = intent.getIntExtra(SearchOptionSelect.SEARCH_ELEMENT_NUMBER, 0);
+        fDensity = intent.getDoubleExtra(SearchOptionSelect.SEARCH_OBJECT_DENSITY, 0.0);
 
         String strElementName = "N/A";
         boolean bElementExist = false;
@@ -104,6 +106,7 @@ public class DisplayElementActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CalcAttenuationActivity.class);
         intent.putExtra(ATTEN_ENERGY, fEnergy);
         intent.putExtra(ATTEN_COEFF, fCoeff);
+        intent.putExtra(SearchOptionSelect.SEARCH_OBJECT_DENSITY, fDensity);
         startActivity(intent);
     }
 }

@@ -21,6 +21,9 @@ public class CalcAttenuationActivity extends AppCompatActivity {
         Intent intent = getIntent();
         fEnergyList = intent.getDoubleArrayExtra(DisplayMaterialActivity.ATTEN_ENERGY);
         fCoeffList = intent.getDoubleArrayExtra(DisplayMaterialActivity.ATTEN_COEFF);
+        fDensity = intent.getDoubleExtra(SearchOptionSelect.SEARCH_OBJECT_DENSITY, 0.0);
+        EditText editTextDensity = (EditText) findViewById(R.id.editTextDensity);
+        editTextDensity.setText(Double.toString(fDensity));
     }
     public void searchByMaterialName(View view) {
         EditText editTextDensity = (EditText) findViewById(R.id.editTextDensity);
@@ -33,7 +36,7 @@ public class CalcAttenuationActivity extends AppCompatActivity {
         }
         try {
             fEnergy = Double.parseDouble(editTextEnergy.getText().toString());
-            fDensity = Double.parseDouble(editTextDensity.getText().toString());
+            //fDensity = Double.parseDouble(editTextDensity.getText().toString());
             fDistance = Double.parseDouble(editTextDistance.getText().toString());
         }
         catch (NumberFormatException e){
@@ -54,7 +57,7 @@ public class CalcAttenuationActivity extends AppCompatActivity {
                     break;
                 }
             }
-            textViewResult.setText(Double.toString(Math.exp(-fCoeffInterp*fDensity*fDistance)));
+            textViewResult.setText(Double.toString(Math.exp(-fCoeffInterp*fDensity*fDistance)*100));
         }
         else{
             textViewResult.setText("Invalid energy range (0.001 to 20)");

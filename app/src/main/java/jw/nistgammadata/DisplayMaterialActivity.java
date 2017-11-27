@@ -15,6 +15,7 @@ public class DisplayMaterialActivity extends AppCompatActivity {
     public static final String ATTEN_COEFF = "jw.nistgammadata.COEFF_LIST";
     private double[] fEnergy;
     private double[] fCoeff;
+    private double fDensity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +27,9 @@ public class DisplayMaterialActivity extends AppCompatActivity {
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
         String strMaterialName = intent.getStringExtra(SelectMaterialActivity.SELECT_MATERIAL_NAME);
-
+        Cursor mCurTemp = mDbHelper.getMaterialNameByAbbrev(strMaterialName);
+        mCurTemp.moveToFirst();
+        fDensity = mCurTemp.getDouble(mCurTemp.getColumnIndex("density"));
         StringBuilder strBDElem = new StringBuilder(strMaterialName);
         double fEnergyTemp, fPPTemp, fTotalTemp;
         String[] strInfoQuery = new String[] {"*"};
@@ -77,6 +80,7 @@ public class DisplayMaterialActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CalcAttenuationActivity.class);
         intent.putExtra(ATTEN_ENERGY, fEnergy);
         intent.putExtra(ATTEN_COEFF, fCoeff);
+        intent.putExtra(SearchOptionSelect.SEARCH_OBJECT_DENSITY, fDensity);
         startActivity(intent);
     }
 }
