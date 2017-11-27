@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="jw.nistgammadata.CalcAttenuationActivity">
+
+    <TextView
+        android:id="@+id/textViewAttenuationTitle"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/string_AttenuationTitle"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextEnergy"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/edit_Energy_AttenuationCalc"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAttenuationTitle" />
+
+    <EditText
+        android:id="@+id/editTextDensity"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/edit_Density_AttenuationCalc"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEnergy" />
+
+    <TextView
+        android:id="@+id/textViewIDCalcAttnResult"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/string_AttnCalcResults"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDensity" />
+
+    <Button
+        android:id="@+id/buttonCalcAtten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="75dp"
+        android:onClick="searchByMaterialName"
+        android:text="@string/stringButtonCalcAtten"
+        app:layout_constraintStart_toEndOf="@+id/editTextDensity"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAttenuationTitle" />
+
+    <EditText
+        android:id="@+id/editTextEditDistance"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/edit_Distance_AttenuationCalc"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAttenuationTitle" />
+</android.support.constraint.ConstraintLayout>

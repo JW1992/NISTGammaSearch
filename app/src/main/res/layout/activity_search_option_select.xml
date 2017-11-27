@@ -9,10 +9,10 @@
     <Button
         android:id="@+id/buttonIDSearchSymbol"
         android:layout_width="130dp"
-        android:layout_height="60dp"
+        android:layout_height="52dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:onClick="searchByName"
+        android:layout_marginTop="10dp"
+        android:onClick="searchByElemName"
         android:text="@string/button_search_symbol"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,11 +20,11 @@
     <Button
         android:id="@+id/buttonIDSearchNumber"
         android:layout_width="130dp"
-        android:layout_height="60dp"
+        android:layout_height="52dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:onClick="searchByAtomNum"
-        android:text="@string/button_seach_Atum"
+        android:text="@string/button_search_ANumber"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonIDSearchSymbol" />
 
@@ -32,9 +32,9 @@
         android:id="@+id/editTextIDSearchSymbol"
         style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
         android:layout_width="180dp"
-        android:layout_height="60dp"
+        android:layout_height="52dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:background="@android:color/transparent"
         android:hint="@string/edit_elem_symbol"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,13 +43,24 @@
     <EditText
         android:id="@+id/editTextIDSearchNumber"
         android:layout_width="180dp"
-        android:layout_height="60dp"
+        android:layout_height="52dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:background="@android:color/transparent"
         android:hint="@string/edit_elem_number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextIDSearchSymbol"></EditText>
+
+    <EditText
+        android:id="@+id/editTextIDSearchMaterial"
+        android:layout_width="180dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/transparent"
+        android:hint="@string/edit_material"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextIDSearchNumber"></EditText>
 
     <TextView
         android:id="@+id/textViewWarningMessage"
@@ -57,11 +68,22 @@
         android:layout_height="53dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:hint="@string/warning_message"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextIDSearchNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextIDSearchMaterial" />
+
+    <Button
+        android:id="@+id/buttonIDSearchMaterial"
+        android:layout_width="130dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="10dp"
+        android:onClick="searchByMaterialName"
+        android:text="@string/button_search_Material"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonIDSearchNumber" />
 
 </android.support.constraint.ConstraintLayout>

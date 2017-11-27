@@ -4,12 +4,17 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class DisplayElementActivity extends AppCompatActivity {
 
     private NISTDBAdapter mDbHelper;
+    public static final String ATTEN_ENERGY = "jw.nistgammadata.ENERGY_LIST";
+    public static final String ATTEN_COEFF = "jw.nistgammadata.COEFF_LIST";
+    private double[] fEnergy;
+    private double[] fCoeff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,8 @@ public class DisplayElementActivity extends AppCompatActivity {
                     LinearLayout myLinearLayoutEnergy = (LinearLayout) findViewById(R.id.layoutEnergy);
                     LinearLayout myLinearLayoutAtten = (LinearLayout) findViewById(R.id.layoutAtten);
                     final int N = energyData.getCount(); // total number of textviews to add
+                    fEnergy = new double[N];
+                    fCoeff = new double[N];
                     //final TextView[] myTextViews = new TextView[N]; // create an empty array;
                     for (int i = 0; i < N; i++) {
                         // create a new textview
@@ -69,9 +76,11 @@ public class DisplayElementActivity extends AppCompatActivity {
                         fEnergyTemp  = energyData.getDouble(energyData.getColumnIndex("energy"));
                         //fPPTemp = energyData.getDouble(energyData.getColumnIndex("photoelectric"));
                         fTotalTemp = energyData.getDouble(energyData.getColumnIndex("attencoeff"));
+                        fEnergy[i] = fEnergyTemp;
+                        fCoeff[i] = fTotalTemp;
                         //String strTempShow = String.format("%-10s %-20s %-30s", Double.toString(fEnergyTemp), Double.toString(fPPTemp), Double.toString(fTotalTemp));
-                        String strTempShowEnergy = String.format("%6s", Double.toString(fEnergyTemp));
-                        String strTempShowAtten = String.format("%10s", Double.toString(fTotalTemp));
+                        String strTempShowEnergy = String.format("%s", Double.toString(fEnergyTemp));
+                        String strTempShowAtten = String.format("%s", Double.toString(fTotalTemp));
                         textViewEnergy.setText(strTempShowEnergy);
                         textViewAtten.setText(strTempShowAtten);
                         //rowTextView.setText(Double.toString(fEnergyTemp));
@@ -90,5 +99,11 @@ public class DisplayElementActivity extends AppCompatActivity {
         // Capture the layout's TextView and set the string as its text
         TextView textView = (TextView) findViewById(R.id.textViewIDElementName);
         textView.setText(strElementName);
+    }
+    public void onCalcAtten(View view){
+        Intent intent = new Intent(this, CalcAttenuationActivity.class);
+        intent.putExtra(ATTEN_ENERGY, fEnergy);
+        intent.putExtra(ATTEN_COEFF, fCoeff);
+        startActivity(intent);
     }
 }

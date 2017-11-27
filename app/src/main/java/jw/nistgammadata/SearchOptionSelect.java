@@ -14,7 +14,7 @@ public class SearchOptionSelect extends AppCompatActivity {
 
     private NISTDBAdapter mDbHelper;
     public static final String SEARCH_ELEMENT_NUMBER = "jw.nistgammadata.ELEMENT_NUMBER";
-    //public static final String SEARCH_ELEMENT_NAME = "jw.nistgammadata.ELEMENT_NAME_OR_SYMBOL";
+    public static final String SEARCH_MATERIAL_ABBREV = "jw.nistgammadata.MATERIAL_CURSOR";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +25,7 @@ public class SearchOptionSelect extends AppCompatActivity {
         mDbHelper.open();
     }
 
-    public void searchByName(View view) {
+    public void searchByElemName(View view) {
         Intent intent = new Intent(this, DisplayElementActivity.class);
         EditText editText = (EditText) findViewById(R.id.editTextIDSearchSymbol);
         String strInputName = editText.getText().toString();
@@ -38,11 +38,25 @@ public class SearchOptionSelect extends AppCompatActivity {
                 startActivity(intent);
             }
             else{
-                updateWarningTextView(new String("Unable to find this material. Also check spells!"));
+                updateWarningTextView(new String("Unable to find this element. Also check spells!"));
             }
         }
     }
 
+    public void searchByMaterialName(View view) {
+        Intent intent = new Intent(this, SelectMaterialActivity.class);
+        EditText editText = (EditText) findViewById(R.id.editTextIDSearchMaterial);
+        String strInputName = editText.getText().toString();
+        Cursor mCur = mDbHelper.getMaterialNameByAbbrev(strInputName);//Search by name
+        if (mCur.getCount() > 0)
+        {
+            intent.putExtra(SEARCH_MATERIAL_ABBREV, strInputName);
+            startActivity(intent);
+        }
+        else{
+            updateWarningTextView(new String("Unable to find matching material. Also check spells!"));
+        }
+    }
 
     public void searchByAtomNum(View view){
         Intent intent = new Intent(this, DisplayElementActivity.class);

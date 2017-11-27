@@ -147,13 +147,13 @@ public class NISTDBAdapter {
         }
     }
 
-    public Cursor getElementAtomNumBySymbol(String strElemSymbol)
+    public Cursor getMaterialNameByAbbrev(String strElemSymbol)
     {
         try
         {
             StringBuilder tempStrBuilder = new StringBuilder();
             tempStrBuilder.append(strElemSymbol);
-            String sql ="SELECT atom_number FROM elements WHERE symbol LIKE '" + tempStrBuilder.toString() + "'";
+            String sql ="SELECT * FROM materials WHERE name LIKE '%%" + tempStrBuilder.toString() + "%%'";
 
             Cursor mCur = mDb.rawQuery(sql, null);
             return mCur;

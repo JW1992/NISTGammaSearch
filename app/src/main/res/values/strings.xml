@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">NIST Gamma Data</string>
-    <string name="button_search_symbol">Search Name</string>
-    <string name="button_seach_Atum">Seach Atom Number</string>
+    <string name="button_search_symbol">Search Element Name</string>
     <string name="edit_elem_symbol">Enter element symbol</string>
     <string name="edit_elem_number">Enter atom number</string>
     <string name="warning_message">Warning messages:</string>
@@ -10,4 +9,16 @@
     <string name="string_PEcmV">P.E. (cm2/V)</string>
     <string name="string_AttenTotal">Attn. Total (cm2/V)</string>
     <string name="textViewEnergy1">N/A</string>
+    <string name="edit_material">Enter material</string>
+    <string name="button_search_Material">Search Material</string>
+    <string name="button_search_ANumber">Search Atom Num</string>
+    <string name="textViewMatchingMaterials">Matching Materials</string>
+    <string name="textViewMaterialName">Material Name</string>
+    <string name="string_CalcAtten">Calc Atten</string>
+    <string name="string_AttenuationTitle">Attenuation Calculation</string>
+    <string name="edit_Energy_AttenuationCalc">Energy (MeV)</string>
+    <string name="edit_Density_AttenuationCalc">Enter Density (g/cm3)</string>
+    <string name="string_AttnCalcResults">Attenuation (%)</string>
+    <string name="stringButtonCalcAtten">Calc. Atten.</string>
+    <string name="edit_Distance_AttenuationCalc">Enter Dist. (cm)</string>
 </resources>
