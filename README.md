@@ -8,18 +8,21 @@ The advantage over the original website is:
 
 ## Getting Started
 
-# Prerequisites
-[Android Studio](https://developer.android.com/studio/install.html) is needed.
-
-## Build path
+### Release version path
 See app/build/outputs/apk/debug/app-debug.apk for current version.
 
-## Built With
+### Tutorial
+![Alt text](/app/src/main/screenshots/SearchOptions.png?raw=true "Optional Title")
+
+### Prerequisites
+[Android Studio](https://developer.android.com/studio/install.html) is needed.
+
+### Built With
 - Java
 - [SQLite](https://www.sqlite.org/) - Data management
 
 ## Version
-# Version 0.1
+### Version 0.1
 Added basic elements and materials. User can search for (1) an element using atom number/symbol/full name and (2) a material using full name/partial name. The searching is not case-sensitive.
 The attenuation coefficient is displayed in a listmode. The user can then calculate the attenuation by clicking "Calc. Atten." button and input the desired gamma ray energy at an arbitrary distance.
 
