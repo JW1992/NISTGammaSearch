@@ -12,7 +12,7 @@ The advantage over the original website is:
 See app/build/outputs/apk/debug/app-debug.apk for current version.
 
 ### Tutorial
-![Alt text](/app/src/main/screenshots/SearchOptions.png?raw=true "Optional Title")
+img src="app/src/main/screenshots/SearchOptions.png" width="200"
 
 ### Prerequisites
 [Android Studio](https://developer.android.com/studio/install.html) is needed.
