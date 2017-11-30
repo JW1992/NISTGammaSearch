@@ -12,7 +12,7 @@ The advantage over the original website is:
 See app/build/outputs/apk/debug/app-debug.apk for current version.
 
 ### Tutorial
-<img src="app/src/main/screenshots/SearchOptions.png" width="200"/><img src="app/src/main/screenshots/SearchOptions.png" width="200"/>
+<img src="app/src/main/screenshots/SearchOptions.png" width="200" hspace="20"/><img src="app/src/main/screenshots/MatchingMaterial.png" width="200" hspace="20"/><img src="app/src/main/screenshots/DisplayPoly.png" width="200" hspace="20"/><img src="app/src/main/screenshots/Attenuation.png" width="200" hspace="20"/>
 
 ### Prerequisites
 [Android Studio](https://developer.android.com/studio/install.html) is needed.
