@@ -36,7 +36,7 @@ public class CalcAttenuationActivity extends AppCompatActivity {
         }
         try {
             fEnergy = Double.parseDouble(editTextEnergy.getText().toString());
-            //fDensity = Double.parseDouble(editTextDensity.getText().toString());
+            fDensity = Double.parseDouble(editTextDensity.getText().toString());
             fDistance = Double.parseDouble(editTextDistance.getText().toString());
         }
         catch (NumberFormatException e){
