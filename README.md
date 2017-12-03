@@ -13,7 +13,7 @@ Any feedback is appreciated! If you liked this please click "star" on the upper 
 ## Getting Started
 
 ### Release version path
-See app/build/outputs/apk/release/app-release-unsigned.apk for current version.
+See app/build/outputs/apk/debug/app-debug.apk for current version.
 
 ### Prerequisites (of Android version) to install the apk
 Android 4.0 (remains to be verified)
