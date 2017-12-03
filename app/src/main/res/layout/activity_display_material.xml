@@ -8,12 +8,16 @@
 
     <TextView
         android:id="@+id/textViewMaterialName"
-        android:layout_width="320dp"
+        android:layout_width="220dp"
         android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:hint="@string/textViewMaterialName"
-        android:textSize="24sp"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCalcAtten"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,7 +25,8 @@
         android:id="@+id/textViewEnergy_Mat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
         android:layout_marginTop="80dp"
         android:text="@string/string_EnergyMeV"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="80dp"
         android:text="@string/string_AttenTotal"
         app:layout_constraintStart_toEndOf="@+id/textViewEnergy_Mat"
@@ -41,6 +47,7 @@
         android:layout_width="328dp"
         android:layout_height="390dp"
         android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="105dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -52,7 +59,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/layoutEnergy"
+                android:id="@+id/layoutEdge"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -62,11 +69,21 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layoutEnergy"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/layoutAtten"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:orientation="vertical">
 
             </LinearLayout>
@@ -78,11 +95,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
         android:onClick="onCalcAtten"
         android:text="@string/string_CalcAtten"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewAtten_Mat"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewEdge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="80dp"
+        android:text="Edge"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

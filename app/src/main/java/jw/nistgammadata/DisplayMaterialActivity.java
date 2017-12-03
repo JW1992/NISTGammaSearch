@@ -42,6 +42,7 @@ public class DisplayMaterialActivity extends AppCompatActivity {
 
                 LinearLayout myLinearLayoutEnergy = (LinearLayout) findViewById(R.id.layoutEnergy);
                 LinearLayout myLinearLayoutAtten = (LinearLayout) findViewById(R.id.layoutAtten);
+                LinearLayout myLinearLayoutEdge = (LinearLayout) findViewById(R.id.layoutEdge);
                 final int N = energyData.getCount(); // total number of textviews to add
                 fEnergy = new double[N];
                 fCoeff = new double[N];
@@ -49,7 +50,10 @@ public class DisplayMaterialActivity extends AppCompatActivity {
                     // create a new textview
                     final TextView textViewEnergy = new TextView(this);
                     final TextView textViewAtten = new TextView(this);
+                    final TextView textViewEdge = new TextView(this);
                     // set some properties of rowTextView or something
+                    String strEdge = "";
+                    strEdge = energyData.getString(energyData.getColumnIndex("absedge"));
                     fEnergyTemp  = energyData.getDouble(energyData.getColumnIndex("energy"));
                     //fPPTemp = energyData.getDouble(energyData.getColumnIndex("photoelectric"));
                     fTotalTemp = energyData.getDouble(energyData.getColumnIndex("attencoeff"));
@@ -60,6 +64,14 @@ public class DisplayMaterialActivity extends AppCompatActivity {
                     String strTempShowAtten = String.format("%s", Double.toString(fTotalTemp));
                     textViewEnergy.setText(strTempShowEnergy);
                     textViewAtten.setText(strTempShowAtten);
+                    if(strEdge!=null){
+                        textViewEdge.setText(strEdge);
+                        myLinearLayoutEdge.addView(textViewEdge);
+                    }
+                    else{
+                        textViewEdge.setText(" ");
+                        myLinearLayoutEdge.addView(textViewEdge);
+                    }
                     // add the textview to the linearlayout
                     myLinearLayoutEnergy.addView(textViewEnergy);
                     myLinearLayoutAtten.addView(textViewAtten);

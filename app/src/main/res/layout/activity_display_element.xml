@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/textViewIDElementName"
-        android:layout_width="280dp"
+        android:layout_width="200dp"
         android:layout_height="48dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
@@ -33,7 +33,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/layoutEnergy"
+                android:id="@+id/layoutEdge"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -43,11 +43,21 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layoutEnergy"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/layoutAtten"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginStart="45dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:orientation="vertical">
 
             </LinearLayout>
@@ -58,8 +68,8 @@
         android:id="@+id/textViewEnergy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
         android:layout_marginTop="80dp"
         android:text="@string/string_EnergyMeV"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,12 +91,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:onClick="onCalcAtten"
         android:text="@string/stringButtonCalcAtten"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewPhotoelectric"
+        app:layout_constraintStart_toEndOf="@+id/textViewIDElementName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewEdge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="80dp"
+        android:text="Edge"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -66,6 +66,7 @@ public class DisplayElementActivity extends AppCompatActivity {
                     //Debugging: Jiawei-Nov23
                     LinearLayout myLinearLayoutEnergy = (LinearLayout) findViewById(R.id.layoutEnergy);
                     LinearLayout myLinearLayoutAtten = (LinearLayout) findViewById(R.id.layoutAtten);
+                    LinearLayout myLinearLayoutEdge = (LinearLayout) findViewById(R.id.layoutEdge);
                     final int N = energyData.getCount(); // total number of textviews to add
                     fEnergy = new double[N];
                     fCoeff = new double[N];
@@ -74,7 +75,9 @@ public class DisplayElementActivity extends AppCompatActivity {
                         // create a new textview
                         final TextView textViewEnergy = new TextView(this);
                         final TextView textViewAtten = new TextView(this);
-                        // set some properties of rowTextView or something
+                        final TextView textViewEdge = new TextView(this);
+                        String strEdge = "";
+                        strEdge = energyData.getString(energyData.getColumnIndex("absedge"));
                         fEnergyTemp  = energyData.getDouble(energyData.getColumnIndex("energy"));
                         //fPPTemp = energyData.getDouble(energyData.getColumnIndex("photoelectric"));
                         fTotalTemp = energyData.getDouble(energyData.getColumnIndex("attencoeff"));
@@ -83,6 +86,14 @@ public class DisplayElementActivity extends AppCompatActivity {
                         //String strTempShow = String.format("%-10s %-20s %-30s", Double.toString(fEnergyTemp), Double.toString(fPPTemp), Double.toString(fTotalTemp));
                         String strTempShowEnergy = String.format("%s", Double.toString(fEnergyTemp));
                         String strTempShowAtten = String.format("%s", Double.toString(fTotalTemp));
+                        if(strEdge!=null){
+                            textViewEdge.setText(strEdge);
+                            myLinearLayoutEdge.addView(textViewEdge);
+                        }
+                        else{
+                            textViewEdge.setText(" ");
+                            myLinearLayoutEdge.addView(textViewEdge);
+                        }
                         textViewEnergy.setText(strTempShowEnergy);
                         textViewAtten.setText(strTempShowAtten);
                         //rowTextView.setText(Double.toString(fEnergyTemp));
