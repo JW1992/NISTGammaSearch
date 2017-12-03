@@ -47,6 +47,10 @@ The user can also query the attenuation (%) of gamma rays between 1 keV and 20 M
 Added basic elements and materials. User can search for (1) an element using atom number/symbol/full name and (2) a material using full name/partial name. The searching is not case-sensitive.
 The attenuation coefficient is displayed in a listmode. The user can then calculate the attenuation by clicking "Calc. Atten." button and input the desired gamma ray energy at an arbitrary distance.
 
+### Version 0.2
+Added K/L/... edges display.
+
+
 ## Authors
 - Jiawei Xia
 
